@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const imagekit = require('../config/imagekit');
+const imagekit = require('../config/imageKit');
 const Product = require('../models/product.model');
 
 const createProduct = async (req, res) => {
@@ -59,7 +59,7 @@ const getAllProductsEcom = async (req, res) => {
     const products = await Product.find({ homeVisibility: true })
       .populate("category")
       .populate("subCategory");
-      
+
     res.status(200).json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
